@@ -1,0 +1,10 @@
+- ability to add a book
+- ability to search for a book
+- book information:
+    title
+    description
+    year published
+    ISBN
+    author
+    genre
+    location
