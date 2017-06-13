@@ -1,34 +1,28 @@
 def add
+    info = {}
+    
     print "title: "
-    title = gets.chomp
+    info['title'] = gets.chomp
     
     print "description: "
-    description = gets.chomp
+    info['description'] = gets.chomp
     
     print "year: "
-    year = gets.chomp
+    info['year'] = gets.chomp
     
     print "isbn: "
-    isbn = gets.chomp
+    info['isbn'] = gets.chomp
     
     print "author: "
-    author = gets.chomp
+    info['author'] = gets.chomp
     
     print "genre: "
-    genre = gets.chomp
+    info['genre'] = gets.chomp
     
     print "location: "
-    location = gets.chomp
+    info['location'] = gets.chomp
     
-    book = Book.new
-    book.title = title
-    book.description = description
-    book.year = year
-    book.isbn = isbn
-    book.author = author
-    book.genre = genre
-    book.location = location
-    
+    book = Book.new(info)
     book.save
 end
 
@@ -36,14 +30,16 @@ def search
     print "title: "
     title = gets.chomp
     
-    book = Book.find_by({:title => title})
+    books = Book.where("title like ?", "%#{title}%")
     
-    if book == nil
+    if books.length == 0
         puts "Book not found"
     else
-        puts "Title: #{book.title}"
-        puts "Description: #{book.description}"
-        puts "Year: #{book.year}"
+        books.each do |book|
+            puts "Title: #{book.title}"
+            puts "Description: #{book.description}"
+            puts "Year: #{book.year}"
+        end
     end
 end
 
