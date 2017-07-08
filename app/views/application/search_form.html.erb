@@ -1,6 +1,14 @@
 <form action="search">
-    <input type="text" name="title" placeholder="Search...">
-    <input type="submit" value="Search">
+    <div class="input-group">
+        <input class="form-control" type="text" name="title" placeholder="Search...">
+        <span class="input-group-btn">
+            <input class="btn btn-default" type="submit" value="Search">
+        </span>
+    </div>
 </form>
 
-<a href="/book">Add Book</a>
+<div class="row">
+    <div class="col-md-12 text-right">
+        <a href="/book" class="btn btn-primary">Add Book</a>
+    </div>
+</div>

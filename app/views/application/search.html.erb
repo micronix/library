@@ -8,10 +8,10 @@
     <% @books.each do |book| %>
         <tr>
             <td>
-                <% if book.image == nil %>
+                <% if book.picture == nil %>
                     <img src="/blank.png">
                 <% else %>
-                    <img height="100" src="<%= book.image %>">
+                    <img height="100" src="<%= book.picture.url %>">
                 <% end %>
             </td>
             <td>
